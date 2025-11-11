@@ -1,0 +1,48 @@
+<html>
+    <head>
+        
+    </head>
+    <body align="center">
+        <!--第一題-->
+        <h1 id="one">個人名片</h1>
+        <table border="1" align="center">
+            <tr>
+                <td>
+                    <img src="123.png" alt="頭像"><br>
+                    <h1>王小明</h1>
+                    <h6>前端工程師</h6>
+                    <h6>example@gmail.com</h6>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <!--第二題-->
+        <h1 id="two">簡單加減法計算</h1>
+        
+            <input type="number" id="num1" placeholder="輸入數字1">
+            <input type="number" id="num2" placeholder="輸入數字2">
+            <button onclick="document.getElementById('sum').textContent=parseInt(num1.value)+parseInt(num2.value)">加總</button>
+        
+        <p id="sum"></p>
+        <hr>
+        <!--第三題-->
+        <h1 id="three">顏色小方塊</h1>
+        <table align="center" id="mytable" width="350" height="350">
+            <tr>
+                <td>
+                    <p align="center">顏色</p>
+                </td>
+            </tr>
+        </table>
+        <input type="color" id="oldcolor" value="#ff0000" onchange="changeColor()">
+
+        <script>
+            function changeColor() 
+            {
+                const color = document.getElementById('oldcolor').value;
+                document.getElementById('mytable').style.backgroundColor = color;
+            }
+        </script>
+    </body>
+</html>
+    
