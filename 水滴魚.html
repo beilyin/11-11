@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>水滴魚的互動網頁</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: "微軟正黑體", sans-serif;
+            background-color: #f9f9f9;
+            transition: background-color 0.5s;
+        }
+        header {
+            background-color: #4a90e2;
+            color: white;
+            padding: 20px;
+            border-radius: 0 0 20px 20px;
+        }
+        main {
+            margin: 30px;
+        }
+        img {
+            width: 150px;
+            border-radius: 50%;
+        }
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #357abd;
+        }
+        footer {
+            margin-top: 50px;
+            font-size: 14px;
+            color: #777;
+        }
+        #messages {
+            margin-top: 20px;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+        .msg {
+            background-color: #e3f2fd;
+            padding: 10px;
+            border-radius: 10px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>👋 歡迎來到我的互動網頁！</h1>
+        <p>這是我——水低於，用 HTML + CSS + JS 製作的網頁 🎨</p>
+    </header>
+
+    <main>
+        <img src="https://picsum.photos/200" alt="隨機圖片"><br>
+        <h2>我是水低於</h2>
+        <p>我正在學習前端技術，想做出更酷的網站！</p>
+
+        <!-- 按鈕區 -->
+        <button onclick="sayHello()">打招呼</button>
+        <button onclick="changeBg()">換背景顏色</button>
+        <button onclick="showTime()">顯示時間</button>
+
+        <p id="timeDisplay"></p>
+
+        <hr>
+
+        <!-- 留言區 -->
+        <h3>💬 留下你的留言：</h3>
+        <input type="text" id="messageInput" placeholder="輸入你的留言">
+        <button onclick="addMessage()">送出</button>
+
+        <div id="messages"></div>
+    </main>
+
+    <footer>
+        <p>© 2025 水低於的網頁 | Made with ❤️ in Taiwan</p>
+    </footer>
+
+    <script>
+        // 打招呼功能
+        function sayHello() {
+            const greetings = [
+                "你好！很高興見到你 😄",
+                "哈囉～今天過得好嗎？☀️",
+                "嗨嗨！歡迎來到我的網頁 💻",
+                "祝你今天充滿能量 💪",
+                "嘿！開心見到你 😎"
+            ];
+            const random = Math.floor(Math.random() * greetings.length);
+            alert(greetings[random]);
+        }
+
+        // 換背景顏色
+        function changeBg() {
+            const colors = ["#f9f9f9", "#e3f2fd", "#fff3e0", "#fce4ec", "#e8f5e9"];
+            const random = Math.floor(Math.random() * colors.length);
+            document.body.style.backgroundColor = colors[random];
+        }
+
+        // 顯示時間
+        function showTime() {
+            const now = new Date();
+            document.getElementById("timeDisplay").textContent =
+                "現在時間：" + now.toLocaleString();
+        }
+
+        // 留言功能
+        function addMessage() {
+            const input = document.getElementById("messageInput");
+            const msg = input.value.trim();
+            if (msg === "") {
+                alert("請輸入留言！");
+                return;
+            }
+
+            const div = document.createElement("div");
+            div.className = "msg";
+            div.textContent = msg;
+
+            document.getElementById("messages").appendChild(div);
+            input.value = "";
+        }
+    </script>
+</body>
+</html>
